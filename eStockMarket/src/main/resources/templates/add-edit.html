@@ -1,0 +1,59 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add / Edit Companies</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Company Add </h1>
+        </div>
+    </div>
+
+    <form th:action="@{/save-reservation}" th:object="${reservation}" method="post">
+        <input type="hidden" th:value="${reservation.id}" name="id"/>
+        <div class="form-group">
+            <label for="companyCode">Company Code:</label>
+            <input th:field="*{companyCode}" type="text" class="form-control" id="companyCode">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('companyCode')}" th:errors="*{companyCode}"></label>
+        </div>
+        <div class="form-group">
+            <label for="companyName">Company Name:</label>
+            <input th:field="*{companyName}" type="text" class="form-control" id="companyName">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('companyName')}" th:errors="*{companyName}"></label>
+        </div>
+        <div class="form-group">
+            <label for="companyCEO">Company CEO:</label>
+            <input th:field="*{companyCEO}" type="text" class="form-control" id="companyCEO">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('companyCEO')}" th:errors="*{companyCEO}"></label>
+        </div>
+        <div class="form-group">
+            <label for="companyTurnover">Company Turnover:</label>
+            <input th:field="*{companyTurnover}" type="text" class="form-control" id="companyTurnover">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('companyTurnover')}" th:errors="*{companyTurnover}"></label>
+        </div>
+        <div class="form-group">
+            <label for="companyWebsite">Company Web site:</label>
+            <input th:field="*{companyWebsite}" type="text" class="form-control" id="companyWebsite">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('companyWebsite')}" th:errors="*{companyWebsite}"></label>
+        </div>
+        <div class="form-group">
+            <label for="stockExchange">Stock Exchange:</label>
+            <input th:field="*{stockExchange}" type="radio" value="NSE" class="form-control" id="stockExchange">NSE
+            <input th:field="*{stockExchange}" type="radio" value="BSE" class="form-control" id="stockExchange">BSE
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('stockExchange')}" th:errors="*{stockExchange}"></label>
+        </div>
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input th:field="*{date}" type="text" class="form-control" id="date">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></label>
+        </div>
+        <a th:href="@{/reservations-ui}">
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </a>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div>
+</body>
+</html>

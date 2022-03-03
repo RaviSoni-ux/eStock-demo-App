@@ -1,0 +1,8 @@
+com\iiht\eStockMarket\model\Company$CompanyBuilder.class
+com\iiht\eStockMarket\controller\CompanyController.class
+com\iiht\eStockMarket\controller\CompanyThymeleafController.class
+com\iiht\eStockMarket\EStockMarketApplication.class
+com\iiht\eStockMarket\model\Stock.class
+com\iiht\eStockMarket\service\CompanyService.class
+com\iiht\eStockMarket\model\Company.class
+com\iiht\eStockMarket\repository\CompanyRepository.class

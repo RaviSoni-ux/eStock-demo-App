@@ -1,0 +1,67 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>eStockMarket</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> E-STOCK MARKET </h1>
+        </div>
+    </div>
+    <a th:href="@{/edit-add-reservation}">
+        <button type="button" class="btn btn-success">Add company</button>
+    </a>
+    <div class="row">
+        <div class="col-md-16">
+            <table class="table">
+                <thead>
+                <tr>
+                    <!--
+                     <th>Id</th>
+                    -->
+                    <th>Company Code</th>
+                    <th>Company Name</th>
+                    <th>Company CEO</th>
+                    <th>Company Turnover</th>
+                    <th>Company Web site</th>
+                    <th>Stock Exchange</th>
+                    <th> Date Time</th>
+                    <th>Actions</th>
+                                     
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${reservations.empty}">
+                    <td colspan="2"> No data Available</td>
+                </tr>
+                <tr th:each="reservation : ${reservations}">
+                    <!--
+                    <td><span th:text="${reservation.id}"> Id </span></td>
+                    -->
+                    <td><span th:text="${reservation.companyCode}">Company Code</span></td>
+                    <td><span th:text="${reservation.companyName}">Company Name </span></td>
+                    <td><span th:text="${reservation.companyCEO}"> Company CEO  </span></td>
+                    <td><span th:text="${reservation.companyTurnover}"> Company Turnover</span></td>
+                    <td><span th:text="${reservation.companyWebsite}"> Company Web site</span></td>
+                    <td><span th:text="${reservation.stockExchange}"> Stock Exchange </span></td>
+                    
+             <td><span th:text="${#temporals.format(reservation.date, 'dd-MM-yyyy HH:mm')}"> Date Time </span></td>
+                    <td>
+                        <a th:href="@{/delete-reservation/{id}(id=${reservation.id})}">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+                        <a th:href="@{/edit-add-reservation/{id}(id=${reservation.id})}">
+                            <button type="button" class="btn btn-primary">Edit</button>
+                        </a>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
